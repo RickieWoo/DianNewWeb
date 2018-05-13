@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<!--read me first
+    please set your url in the 27th line;
+    the information sent to the server is string,
+    because jQuery is banned, and XmlHttpRequest can only send string;
+    the string model is in the 174th line, you can change it as you want,
+    As I am not familiar with XmlHttpRequest, My code might exist some error as I don't have a server to debug;
+    the xmlhttp code is only 11 lines, it's easy to modify.
+    any question to ask me. remember to set request, if successful, send "success", else send others. 
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <meta http-equiv="content-type" content="text/html">
+    <title>种子班招新</title>
+    <script type="text/javascript">
+        var input_info1;
+        var input_info2;
+        var input_info3;
+        var input_info4;
+        var input_info5;
+        var input_info6;
+        var input_info7;
+        var input_info8;
+        var input_info9;
+        var url='http://localhost:3000/entry_form/new';//这里写你的url;
+        /*
+        var name;
+        var email;
+        var phone;
+        var college;
+        var grade_class;
+        var reason;
+        var age;
+        var failed;        
+        根据所需信息的内容选择
+        */
+        
+        function storeInfo1(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info1=str;       
+        }
+        function storeInfo2(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info2=str;
+        }
+        function storeInfo3(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info3=str;
+        }
+        function storeInfo4(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info4=str;
+        }
+        function storeInfo5(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info5=str;       
+        }
+        function storeInfo6(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info6=str;       
+        }
+        function storeInfo7(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info7=str;       
+        }
+        function storeInfo8(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info8=str;       
+        }
+        function storeInfo9(str)
+        {
+            if(str.length==0)
+            {
+                return;
+            }
+            input_info9=str;       
+        }
+       
+        function finish()
+        {
+            
+           
+            
+        }
+
+        function GoTo_Info_List3()
+        {
+            
+        }
+
+        function GoTo_Info_List2()
+        {
+            console.log(input_info1+input_info2+input_info3+input_info4);
+            if(input_info1!=undefined && input_info2!=undefined && input_info3!=undefined && input_info4!=undefined )
+            {
+                document.getElementById("INFO1").innerHTML="INFO5";
+                document.getElementById("INFO2").innerHTML="INFO6";
+                document.getElementById("INFO3").innerHTML="INFO7";
+                document.getElementById("INFO4").innerHTML="INFO8";
+                document.getElementById("halfOrange").style.visibility="visible";
+                document.getElementById("spot2").style.visibility="visible";
+                document.getElementById("info2").style.visibility="visible";
+                document.getElementById("information1").onkeyup=storeInfo5(document.getElementById("information1").value);
+                document.getElementById("information1").value="";
+                document.getElementById("information2").onkeyup=storeInfo6(document.getElementById("information2").value);
+                document.getElementById("information2").value="";
+                document.getElementById("information3").onkeyup=storeInfo7(document.getElementById("information3").value);
+                document.getElementById("information3").value="";
+                document.getElementById("information4").onkeyup=storeInfo8(document.getElementById("information4").value);
+                document.getElementById("information4").value="";
+                document.getElementById("Next").onclick=function(){
+                    if(input_info1!=undefined && input_info2!=undefined && input_info3!=undefined && input_info4!=undefined)
+            {
+                document.getElementById("INFO1").innerHTML="INFO9";
+                document.getElementById("INFO2").innerHTML="INFO10";
+                document.getElementById("INFO3").innerHTML="INFO11";
+                document.getElementById("INFO4").innerHTML="INFO12";
+                document.getElementById("information1").value="";
+                document.getElementById("information2").value="";
+                document.getElementById("information3").value="";
+                document.getElementById("information4").value="";
+                
+                document.getElementById("allOrange").style.visibility="visible";
+                document.getElementById("spot3").style.visibility="visible";
+                document.getElementById("info3").style.visibility="visible";
+                document.getElementById("information1").onkeyup=storeInfo9(document.getElementById("information1").value);
+                document.getElementById("Next").onclick=function(){
+                    if(document.getElementById("information1").value!=undefined )
+            {
+                //begin, input_info is the information inputed by the applicant,and I have set nine of them.
+                var xmlhttp= new XMLHttpRequest();
+                xmlhttp.open('POST',url,true);
+                xmlhttp.setRequestHeader("Content-Type", "application/json");
+                xmlhttp.onreadystatechange=connect;
+                function connect()
+                {
+                    if (xmlhttp.readyState==4 ||xmlhttp.status==200)
+                    {
+                        alert(xmlhttp.responseText);
+                    }
+                }    
+                    var person={
+                                phone:input_info1,
+                                info2:input_info2,
+                                info3:input_info3,
+                                info4:input_info4 //info5:"+input_info5+",info6:"+input_info6+",info7:"+input_info7+",info8:"+input_info8+",info9:"+input_info9;
+                    }
+                    person=JSON.stringify(person);
+                    console.log(person);
+                    xmlhttp.send(person);
+                //end
+  
+            }else{
+                alert("信息不完整");
+            }
+                };
+            }else{
+                alert("信息不完整");
+            }
+                };
+                console.log(input_info1+" "+input_info2+" change onclick"); 
+                console.log(document.getElementById("Next").onclick);
+            }else{
+                alert("信息不完整");
+            }
+        }
+        
+        
+    </script>
+    <style>
+         @font-face {
+            font-family: 'PWChalk';
+            src: url('PWChalk.ttf');
+        }
+
+        body
+        {
+            font-family: PWChalk;
+            width: 1920px;
+        }
+        #Part
+        {
+            background: #eb9b19;
+            width: 1920px;
+            height: 90px;
+            font-family: PWChalk;
+            font-size: 36px;
+            color: #ffffff;
+        }
+        #partNum
+        {
+            font-family: PWChalk;
+            font-size: 36px;
+            color: #ffffff;
+            position: absolute;
+            top: 6px;
+            float: left;
+            height: 94px;
+        }
+        #localsign
+        {
+            color: #eb9b19;
+            background: #ffffff;
+        }
+        .partArea
+        {
+            width: 160px;
+        }
+        #seedclass
+        {
+            width: 1200px
+        }
+        
+        #Content_Part
+        {
+            width: 1920px;
+            height:900px;
+            background:#8ff6ff;
+        }
+        #peopleDiv
+        {
+            position: relative;
+            top: 150px;
+            left: 0px;
+            width:fit-content;
+            height: fit-content;
+        }
+        #spotDiv
+        {
+            position: relative;
+            left: 800px;
+            top: -600px;
+        }
+        /*
+            以下为spotDiv的布局
+        */
+        #progressbar
+        {
+            position: absolute;
+            left: 780px;
+            top: 300px;
+            width: 1400px;
+        }
+        .progressline
+        {
+            position: absolute;
+        }
+        #form
+        {
+            position: relative;
+            left: 780px;
+            top: -430px;
+            font-family: PWChalk;
+            font-size: 24px;
+            color: black;
+            width: 500;
+        }
+        .info
+        {
+            font-size: 24px;
+        }
+        #info2
+        {
+            visibility: hidden;
+        }
+        #info3
+        {
+            visibility: hidden;
+        }
+        #allWhite
+        {
+            position: absolute;
+            top: -40px;
+            left: 44px;
+        }
+        #halfOrange
+        {
+            position: absolute;
+            left: -34px;
+            top: -18.5%;
+            visibility: hidden;
+        }
+        #allOrange
+        {
+            position: absolute;
+            left: -14px;
+            top: 11%;
+            visibility: hidden;
+        }
+        #spot2
+        {
+            visibility: hidden;
+        }
+        #spot3
+        {
+            visibility: hidden;
+        }
+
+        .inputs
+        {
+            width: 580px;
+            height: 80px;
+        }
+        .inputInformation
+        {
+            color: black;
+            background: #8ff6ff;
+            font-family: PWChalk;
+            font-size: 24px;
+            outline: 0;
+            border:none;
+            height: 36px;
+            width: 400px;
+            position: absolute;
+        }
+        .inputline
+        {
+            position: relative;
+            top: -20px;
+        }
+        #Next
+        {
+            position: absolute;
+            font-size: 36px;
+            font-family: PWChalk;
+            width: 300px;
+            height: 60px;
+            background: #eb9b19;
+            border: 0;      
+        }
+
+    </style>
+   
+</head>
+<body >
+    <div id="Part">
+        <table id="partNum" border="0px">
+            <tr>
+                <td class="partArea" id="seedclass">SEED CLASS</td>
+                <td id="empty">&nbsp;</td>
+                <td class="partArea" onclick="location.href='DianTask2.htm'">PART1</td>
+                <td class="partArea" onclick="location.href='part2.htm'">PART2</td>
+                <td class="partArea" onclick="location.href='part3.htm'">PART3</td>
+                <td class="partArea" onclick="location.href='sign_up.htm'" id="localsign">SIGN UP</td>
+            </tr>
+        </table>
+    </div>
+    <div id="Content_Part">
+            <img id="peopleDiv" src="fontTask/picture/people.png"/>
+            <table id="progressbar" border="0px">
+                <tr>
+                    <td>
+                        <img src="fontTask/picture/点.png" id="spot1" />
+                    </td>
+                    <td>
+                        <img src="fontTask/picture/点.png" id="spot2" />
+                    </td>
+                    <td>
+                        <img src="fontTask/picture/点.png" id="spot3" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <img src="fontTask/picture/虚线白.png" id="allWhite" class="progressline"/>
+                    
+                        <img src="fontTask/picture/虚线橙半.png" id="halfOrange" class="progressline"/>
+                    
+                        <img src="fontTask/picture/虚线橙全.png" id="allOrange" class="progressline"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="info" id="info1">
+                        INFO ONE
+                    </td>
+                    <td class="info" id="info2">
+                        INFO TWO
+                    </td>
+                    <td class="info" id="info3">
+                        INFO THREE
+                    </td>
+                </tr>
+            </table>
+        
+        </div>
+            <table border="0px" id="form">
+                <tr>
+                    <td class="query" ><span id="INFO1">INFO1</span></td>
+                    <td class="query" ><span id="INFO2">INFO2</span></td>
+                </tr>
+                <tr>
+                    <td class="inputs"> 
+                        <input type="text" id="information1" class="inputInformation" onkeyup="storeInfo1(this.value)"/>
+                    </td>
+                    <td class="inputs">
+                        <input type="text" id="information2" class="inputInformation" onkeyup="storeInfo2(this.value)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="fontTask/picture/线.png" class="inputline"/>
+                    </td>
+                    <td>
+                        <img src="fontTask/picture/线.png" class="inputline"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="query" ><span id="INFO3">INFO3</span></td>
+                    <td class="query" ><span id="INFO4">INFO4</span></td>    
+                </tr>
+                <tr>
+                    <td class="inputs">
+                        <input type="text" id="information3" class="inputInformation" onkeyup="storeInfo3(this.value)"/>
+                    </td>
+                    <td class="inputs">
+                        <input type="text" id="information4" class="inputInformation" onkeyup="storeInfo4(this.value)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="fontTask/picture/线.png" class="inputline"/>
+                    </td>
+                    <td>
+                        <img src="fontTask/picture/线.png" class="inputline"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center><button id="Next" onclick="GoTo_Info_List2()" class="next">NEXT</button>  </center>  
+                    </td>    
+                </tr>
+            </table>
+            
+    </div>
+</body>
+</html>
