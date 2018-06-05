@@ -1,70 +1,54 @@
 /*jshint esversion: 6 */
 var express = require('express');
 var router = express.Router();
-var request =require('request');
-var fs = require('fs');//引用文件系统模块
-var http=require('http');
-var user=require('../models/entry_db').user;
+var request = require('request');
+var fs = require('fs'); //引用文件系统模块
+var http = require('http');
+var user = require('../models/entry_db').user;
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/DianTask1.htm");
+  res.sendfile("./public/index.html");
 });
-router.get('/fontTask/picture/%E7%82%B9.png', function (req, res, next) {
+router.get('/static/css/app.bd576c422c493af9c3b0c11b227c4c72.css', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/%E7%82%B9.png");
+  res.sendfile("./public/static/css/app.bd576c422c493af9c3b0c11b227c4c72.css");
 });
-router.get('/fontTask/picture/people.png', function (req, res, next) {
+router.get('/static/css/app.bd576c422c493af9c3b0c11b227c4c72.css.map', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/people.png");
+  res.sendfile("./public/static/css/app.bd576c422c493af9c3b0c11b227c4c72.css.map");
 });
-router.get('/fontTask/picture/arrow.png', function (req, res, next) {
+router.get('/static/fonts/element-icons.6f0a763.ttf', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/arrow.png");
+  res.sendfile("./public/static/fonts/element-icons.6f0a763.ttf");
 });
-router.get('/fontTask/picture/person.png', function (req, res, next) {
+router.get('/static/js/app.8170d8eb3e5bd64ff30c.js', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/person.png");
+  res.sendfile("./public/static/js/app.8170d8eb3e5bd64ff30c.js");
 });
-router.get('/fontTask/picture/%E8%99%9A%E7%BA%BF%E7%99%BD.png', function (req, res, next) {
+router.get('/static/js/app.8170d8eb3e5bd64ff30c.js.map', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/%E8%99%9A%E7%BA%BF%E7%99%BD.png");
+  res.sendfile("./public/static/js/app.8170d8eb3e5bd64ff30c.js.map");
 });
-router.get('/fontTask/picture/%E8%99%9A%E7%BA%BF%E6%A9%99%E5%85%A8.png', function (req, res, next) {
+router.get('/static/js/manifest.69db1e8489eecd77d098.js', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/%E8%99%9A%E7%BA%BF%E6%A9%99%E5%85%A8.png");
+  res.sendfile("./public/static/js/manifest.69db1e8489eecd77d098.js");
 });
-router.get('/fontTask/picture/%E8%99%9A%E7%BA%BF%E6%A9%99%E5%8D%8A.png', function (req, res, next) {
+router.get('/static/js/manifest.69db1e8489eecd77d098.js.map', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/%E8%99%9A%E7%BA%BF%E6%A9%99%E5%8D%8A.png");
+  res.sendfile("./public/static/js/manifest.69db1e8489eecd77d098.js.map");
 });
-router.get('/PWChalk.ttf', function (req, res, next) {
+router.get('/static/js/manifest.69db1e8489eecd77d098.js.map', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/PWChalk.ttf");
+  res.sendfile("./public/static/js/manifest.69db1e8489eecd77d098.js.map");
 });
-router.get('/fontTask/picture/%E7%BA%BF.png', function (req, res, next) {
+router.get('/static/js/vendor.1491973c9314706a4191.js', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/fontTask/picture/%E7%BA%BF.png");
+  res.sendfile("./public/static/js/vendor.1491973c9314706a4191.js");
 });
-router.get('/DianTask2.htm', function (req, res, next) {
+router.get('/static/js/vendor.1491973c9314706a4191.js.map', function (req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendfile("./public/DianTask2.htm");
-});
-router.get('/DianTask1.htm', function (req, res, next) {
-  //res.render('index', { title: 'Express' });
-  res.sendfile("./public/DianTask1.htm");
-});
-router.get('/part2.htm', function (req, res, next) {
-  //res.render('index', { title: 'Express' });
-  res.sendfile("./public/part2.htm");
+  res.sendfile("./public/static/js/vendor.1491973c9314706a4191.js.map");
 });
 
-router.get('/part3.htm', function (req, res, next) {
-  //res.render('index', { title: 'Express' });
-  res.sendfile("./public/part3.htm");
-});
-router.get('/sign_up.htm', function (req, res, next) {
-  //res.render('index', { title: 'Express' });
-  res.sendfile("./public/sign_up.htm");
-});
 module.exports = router;
