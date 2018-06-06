@@ -32,11 +32,13 @@ class EntryForm {
           `[entryForm] DB getUser err => no hashKey inside`
         );
         reject({
-            reason: "params error , no hashKey inside"
+          reason: "params error , no hashKey inside"
         });
       }
       let id = params[this.hashKey];
-      this.db.entryForms.findOne({_id: id}, (err, docs) => {
+      this.db.entryForms.findOne({
+        _id: id
+      }, (err, docs) => {
         if (err) {
           logger.error(
             `[entryForm] DB getUser err => ${JSON.stringify(err, null, 4)}`
@@ -47,18 +49,18 @@ class EntryForm {
         }
       });
     })
-    
+
   }
 
-  deletUser(params) {
+  deleteUser(params) {
     return new Promise((resolve, reject) => {
       console.log('params:', params);
       if (!params[this.hashKey]) {
         logger.error(
-          `[entryForm] DB deletUser err => no hashKey inside`
+          `[entryForm] DB deleteUser err => no hashKey inside`
         );
         reject({
-            reason: "params error , no hashKey inside"
+          reason: "params error , no hashKey inside"
         });
       }
       let queryParam = {
@@ -67,7 +69,7 @@ class EntryForm {
       this.db.entryForms.remove(queryParam, (err, docs) => {
         if (err) {
           logger.error(
-            `[entryForm] DB deletUser err => ${JSON.stringify(err, null, 4)}`
+            `[entryForm] DB deleteUser err => ${JSON.stringify(err, null, 4)}`
           );
           reject(err);
         } else {
@@ -85,7 +87,7 @@ class EntryForm {
           `[entryForm] DB createUser err => no hashKey inside`
         );
         reject({
-            reason: "params error , no hashKey inside"
+          reason: "params error , no hashKey inside"
         });
       }
       this.db.entryForms.insert(params, (err, docs) => {
@@ -108,10 +110,16 @@ class EntryForm {
           `[entryForm] DB updateUser err => no hashKey inside`
         );
         reject({
-            reason: "params error , no hashKey inside"
+          reason: "params error , no hashKey inside"
         });
       }
-      this.db.entryForms.update({_id: params.phone},{$set:params},{upsert: true}, (err, docs) => {
+      this.db.entryForms.update({
+        _id: params.phone
+      }, {
+        $set: params
+      }, {
+        upsert: true
+      }, (err, docs) => {
         if (err) {
           logger.error(
             `[entryForm] DB updateUser err => ${JSON.stringify(err, null, 4)}`
@@ -122,7 +130,7 @@ class EntryForm {
         }
       });
 
-      
+
     })
   }
 }
